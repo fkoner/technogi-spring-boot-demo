@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-cd /home/home/api
+cd /home/ubuntu/api
+
+### For JDK
+source "/home/ubuntu/.sdkman/bin/sdkman-init.sh"
 
 # echo "Incrementing build version"
 # ==============================
