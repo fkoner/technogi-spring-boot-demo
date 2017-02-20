@@ -1,0 +1,11 @@
+version: 0.1
+phases:
+  build:
+    commands:
+      chmod +x ./gradlew && ./gradlew build
+artifacts:
+  type: zip
+  files:
+    - build/libs/spring-boot-demo-0.0.1.jar
+    - deploy/*
+    - appspec.yml
