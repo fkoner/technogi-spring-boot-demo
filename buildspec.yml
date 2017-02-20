@@ -7,5 +7,5 @@ artifacts:
   type: zip
   files:
     - build/libs/spring-boot-demo-0.0.1.jar
-    - deploy/*
+    - deploy/**/*
     - appspec.yml
