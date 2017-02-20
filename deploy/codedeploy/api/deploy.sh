@@ -11,8 +11,10 @@ minor=`cut -d '.' -f2 version`
 build=`cut -d '.' -f3 version`
 VERSION="$mayor.$minor.$build"
 
-echo "Initializing application..."
+echo "Initializing application boot ..."
 
-java -jar spring-boot-demo-0.0.1.jar &
+#java -jar spring-boot-demo-0.0.1.jar &
 
-exit 0
+echo "Finalizing application boot ..."
+
+#exit 0
