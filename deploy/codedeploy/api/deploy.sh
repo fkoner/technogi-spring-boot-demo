@@ -15,4 +15,4 @@ echo "Initializing application..."
 
 java -jar spring-boot-demo-0.0.1.jar &
 
-return 0
+exit 0
