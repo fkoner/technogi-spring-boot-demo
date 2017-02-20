@@ -1,0 +1,25 @@
+version: 0.0
+os: linux
+files:
+  - source: deploy/codedeploy/api
+    destination: /home/api/api/
+  - source: build/libs/spring-boot-demo-0.0.1.jar
+    destination: /home/ubuntu/api/
+permissions:
+  - object: /home/ubuntu/api/spring-boot-demo-0.0.1.jar  
+    owner: ubuntu
+    group: ubuntu
+    mode: 750
+    type:
+      - file
+  - object: /home/ubuntu/api/version
+    owner: ubuntu
+    group: ubuntu
+    mode: 644
+    type:
+      - file
+hooks:
+  ApplicationStart:
+    - location: api/deploy.sh
+      timeout: 600
+      runas: ubuntu
