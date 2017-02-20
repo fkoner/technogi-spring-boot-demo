@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: deploy/codedeploy/api
-    destination: /home/api/api/
+    destination: /home/ubuntu/api/
   - source: build/libs/spring-boot-demo-0.0.1.jar
     destination: /home/ubuntu/api/
 permissions:
@@ -20,6 +20,6 @@ permissions:
       - file
 hooks:
   ApplicationStart:
-    - location: api/deploy.sh
+    - location: deploy/codedeploy/api/deploy.sh
       timeout: 600
       runas: ubuntu
