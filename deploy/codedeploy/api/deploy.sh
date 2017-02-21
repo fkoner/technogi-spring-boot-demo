@@ -24,7 +24,7 @@ if [[ $? -ne 0 ]] ; then
     exit 1
 fi
 
-PORT="8080"
+PORT="80"
 
 CONTAINER="microsip-ms-demo-$PORT"
 echo "Deploying $CONTAINER"
