@@ -11,13 +11,16 @@ minor=`cut -d '.' -f2 version`
 build=`cut -d '.' -f3 version`
 VERSION="$mayor.$minor.$build"
 
-echo "Building image 'mirsa/iot-api:$VERSION'"
+IMAGE_REPO=microsip
+IMAGE_TAG=ms-demo
+IMAGE="$IMAGE_REPO/$IMAGE_TAG:$VERSION"
+
+echo "Building image '$IMAGE'"
 # =====================================
-IMAGE="mirsa/iot-api:$VERSION"
 docker build -t "$IMAGE" .
 
 if [[ $? -ne 0 ]] ; then
-    echo "Error creating image"
+    echo "Error creating image $IMAGE"
     exit 1
 fi
 

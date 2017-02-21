@@ -6,6 +6,12 @@ files:
   - source: build/libs/spring-boot-demo-0.0.1.jar
     destination: /home/ubuntu/api/
 permissions:
+  - object: /home/ubuntu/api/deploy.sh
+    owner: ubuntu
+    group: ubuntu
+    mode: 750
+    type:
+      - file
   - object: /home/ubuntu/api/spring-boot-demo-0.0.1.jar  
     owner: ubuntu
     group: ubuntu
