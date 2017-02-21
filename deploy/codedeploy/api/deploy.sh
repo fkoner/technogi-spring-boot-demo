@@ -11,10 +11,28 @@ minor=`cut -d '.' -f2 version`
 build=`cut -d '.' -f3 version`
 VERSION="$mayor.$minor.$build"
 
-echo "Initializing application boot ..."
+echo "Building image 'mirsa/iot-api:$VERSION'"
+# =====================================
+IMAGE="mirsa/iot-api:$VERSION"
+docker build -t "$IMAGE" .
 
-#java -jar spring-boot-demo-0.0.1.jar &
+if [[ $? -ne 0 ]] ; then
+    echo "Error creating image"
+    exit 1
+fi
 
-echo "Finalizing application boot ..."
+PORT="8080"
 
-#exit 0
+CONTAINER="microsip-ms-demo-$PORT"
+echo "Deploying $CONTAINER"
+CONTAINER_EXISTS=$(docker ps -a | grep $CONTAINER)
+
+docker stop $CONTAINER
+docker rm -f $CONTAINER
+
+docker run -d -p "$PORT:8080" \
+  --name $CONTAINER \
+  --restart always \
+  "$IMAGE"
+
+echo "Registering $CONTAINER in Load Balancer..."

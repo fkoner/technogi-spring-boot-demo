@@ -12,6 +12,12 @@ permissions:
     mode: 750
     type:
       - file
+  - object: /home/ubuntu/api/Dockerfile
+    owner: ubuntu
+    group: ubuntu
+    mode: 644
+    type:
+      - file
   - object: /home/ubuntu/api/version
     owner: ubuntu
     group: ubuntu
@@ -21,5 +27,5 @@ permissions:
 hooks:
   ApplicationStart:
     - location: deploy/codedeploy/api/deploy.sh
-      timeout: 360
+      timeout: 1200
       runas: ubuntu
