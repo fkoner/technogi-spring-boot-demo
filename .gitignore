@@ -26,3 +26,5 @@ nbdist/
 
 ### Mac ###
 .DS_Store
+
+classes/
