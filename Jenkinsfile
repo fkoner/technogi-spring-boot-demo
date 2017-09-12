@@ -10,9 +10,9 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        docker.withServer("tcp://MacBook-Pro-de-Carlos.local:2376") {
+        /*docker.withServer("tcp://MacBook-Pro-de-Carlos.local:2376") {*/
             app = docker.build("fkone/technogi-spring-boot-demo")
-	}
+	/}*/
     }
 
     stage('Test image') {
